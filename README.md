@@ -91,3 +91,39 @@ Found gist ID f0cba2cdad0afa4ca50c293256bf7b79
 
 ```
 
+### Example 3
+
+It can handle multiple files too
+
+```
+$ python gist2markdown.py  --url https://gist.github.com/evankozliner/0884837e6835e8b951f0e2e4ce4d6042                                                            
+Found gist ID 0884837e6835e8b951f0e2e4ce4d6042
+```Python
+import re
+import argparse
+import requests
+
+def main():
+    args = parse_args()
+
+    gist_id = find_id(args.url, args.follow_redirects)
+    print(f"Found gist ID {gist_id}")
+    gist_api_adaptor = GistAPIAdaptor(gist_id)
+    gist_api_adaptor.fetch()
+    file_types = gist_api_adaptor.get_file_langs()
+    raw_urls =  gist_api_adaptor.get_raw_urls()
+    for i in range(len(raw_urls)):
+        output_markdown(file_types[i], raw_urls[i])
+
+
+\```
+```JSON
+{
+  "some-key": 2
+}
+
+
+\```
+```
+
+
