@@ -95,7 +95,7 @@ class GistAPIAdaptor:
         """ Pull the filetype from gist data """
         langs = []
         for filename in self._data['files'].keys():
-            langs.append(self._data['files'][filename]['language'])
+            langs.append(self._data['files'][filename]['language'].lower())
 
         return langs
 
