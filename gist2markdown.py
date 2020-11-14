@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import re
 import argparse
 import requests
@@ -6,7 +8,9 @@ def main():
     args = parse_args()
 
     gist_id = find_id(args.url, args.follow_redirects)
-    print(f"Found gist ID {gist_id}")
+
+    if args.verbose:
+        print(f"Found gist ID {gist_id}")
     gist_api_adaptor = GistAPIAdaptor(gist_id)
     gist_api_adaptor.fetch()
     file_types = gist_api_adaptor.get_file_langs()
@@ -26,6 +30,11 @@ def parse_args():
             "--follow-redirects", 
             action="store_true",
             help="Follow redirects when pulling URL. Useful for sites that redirect to github, but place the URL under their own domain, like Medium.")
+    parser.add_argument("-v", 
+            "--verbose", 
+            default=False,
+            action="store_true",
+            help="Verbose output.")
 
     return parser.parse_args()
 

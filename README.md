@@ -1,6 +1,8 @@
 # gist2markdown
 Simply converts a gist to markdown with the correct language. 
 
+## TODO
+- [ ] Package / distribute this script
 
 ## Usage
 
