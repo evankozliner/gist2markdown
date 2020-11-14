@@ -55,9 +55,11 @@ def find_id(url, follow_redirects):
     return gist_id
 
 def output_markdown(file_type, raw_url):
-    print(f"```{file_type}")
+    if file_type != 'Markdown':
+        print(f"```{file_type}")
     print(requests.get(raw_url).text)
-    print(f"```")
+    if file_type != 'Markdown':
+        print(f"```")
 
 def search_for_gist_id(url):
     # Gist ID is 32 characters e.g. f0cba2cdad0afa4ca50c293256bf7b79
