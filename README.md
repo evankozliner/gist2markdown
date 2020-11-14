@@ -50,9 +50,11 @@ Found gist ID f2e0c4eb5cd6d15fdfc8ca6cdd9d8bb5
         }
     ]
 }
-```
+\```
 
 ```
+
+I manually added the final backslash above just to get this README, which is also in markdown, to not break formatting.
 
 
 ### Example 2
@@ -85,6 +87,7 @@ Found gist ID f0cba2cdad0afa4ca50c293256bf7b79
     }
   ]
 }
-```
+\``` 
 
 ```
+
